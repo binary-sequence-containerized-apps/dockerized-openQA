@@ -19,6 +19,7 @@ RUN a2enmod proxy_http
 RUN a2enmod proxy_wstunnel
 RUN echo ServerName locahost >> /etc/apache2/httpd.conf
 RUN cp /etc/apache2/vhosts.d/openqa.conf.template /etc/apache2/vhosts.d/openqa.conf
+RUN sed -i '/^# method = Fake|OpenID|iChain$/a method = Fake' /etc/openqa/openqa.ini
 
 # This script start the services without having dbus.
 ADD run_openqa.sh /root/
