@@ -8,13 +8,16 @@ RUN zypper ar -f obs://devel:openQA/openSUSE_Leap_42.3 openQA
 RUN zypper ar -f obs://devel:openQA:Leap:42.3/openSUSE_Leap_42.3 openQA-perl-modules
 RUN zypper --gpg-auto-import-keys ref
 RUN zypper --non-interactive in --force-resolution apache2
+RUN zypper --non-interactive in --force-resolution perl-Archive-Extract
+RUN zypper --non-interactive in --force-resolution w3m
+RUN zypper --non-interactive in --force-resolution which
 RUN zypper --non-interactive in --force-resolution openQA
 
 RUN a2enmod headers
 RUN a2enmod proxy
 RUN a2enmod proxy_http
 RUN a2enmod proxy_wstunnel
-
+RUN echo ServerName locahost >> /etc/apache2/httpd.conf
 RUN cp /etc/apache2/vhosts.d/openqa.conf.template /etc/apache2/vhosts.d/openqa.conf
 
 # This script start the services without having dbus.
