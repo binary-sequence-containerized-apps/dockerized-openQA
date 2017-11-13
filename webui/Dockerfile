@@ -19,10 +19,11 @@ RUN a2enmod proxy_wstunnel
 RUN echo ServerName locahost >> /etc/apache2/httpd.conf
 RUN cp /etc/apache2/vhosts.d/openqa.conf.template /etc/apache2/vhosts.d/openqa.conf
 ADD openqa.ini /etc/openqa/openqa.ini
+ADD rsyncd.conf /etc/rsyncd.conf
 
 # This script start the services without having dbus.
 ADD run_openqa.sh /root/
 RUN chmod +x /root/run_openqa.sh
 
-EXPOSE 80 443
+EXPOSE 80 443 873
 CMD ["/bin/bash"]

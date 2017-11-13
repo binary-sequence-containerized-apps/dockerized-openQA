@@ -10,6 +10,7 @@ fi
 
 # run services
 dbus-daemon --system --fork
+start_daemon /usr/sbin/rsyncd --daemon --no-detach &
 start_daemon -u geekotest /usr/share/openqa/script/openqa-scheduler &
 start_daemon -u geekotest /usr/share/openqa/script/openqa-websockets &
 start_daemon -u geekotest /usr/share/openqa/script/openqa gru -m production run &
