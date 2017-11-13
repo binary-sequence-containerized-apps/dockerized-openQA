@@ -26,4 +26,4 @@ ADD run_openqa.sh /root/
 RUN chmod +x /root/run_openqa.sh
 
 EXPOSE 80 443 873
-CMD ["/bin/bash"]
+CMD ["/root/run_openqa.sh"]
