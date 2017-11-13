@@ -12,14 +12,13 @@ RUN zypper --non-interactive in --force-resolution perl-Archive-Extract
 RUN zypper --non-interactive in --force-resolution w3m
 RUN zypper --non-interactive in --force-resolution which
 RUN zypper --non-interactive in --force-resolution openQA
-
 RUN a2enmod headers
 RUN a2enmod proxy
 RUN a2enmod proxy_http
 RUN a2enmod proxy_wstunnel
 RUN echo ServerName locahost >> /etc/apache2/httpd.conf
 RUN cp /etc/apache2/vhosts.d/openqa.conf.template /etc/apache2/vhosts.d/openqa.conf
-RUN sed -i '/^# method = Fake|OpenID|iChain$/a method = Fake' /etc/openqa/openqa.ini
+ADD openqa.ini /etc/openqa/openqa.ini
 
 # This script start the services without having dbus.
 ADD run_openqa.sh /root/
