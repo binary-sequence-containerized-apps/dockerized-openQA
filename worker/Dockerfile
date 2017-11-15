@@ -7,8 +7,10 @@ LABEL version="2017-11-15"
 RUN zypper ar -f obs://devel:openQA/openSUSE_Leap_42.3 devel-openQA
 RUN zypper ar -f obs://devel:openQA:Leap:42.3/openSUSE_Leap_42.3 devel-openQA-perl-modules
 RUN zypper --gpg-auto-import-keys ref
+RUN zypper --non-interactive in qemu-kvm
 RUN zypper --non-interactive in openQA-worker
 
+# Config
 ADD client.conf /etc/openqa/
 ADD workers.ini /etc/openqa/
 
