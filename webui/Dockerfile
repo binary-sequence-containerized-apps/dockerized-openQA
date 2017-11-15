@@ -1,11 +1,11 @@
 FROM opensuse:42.3
 LABEL maintainer Sergio Lindo Mansilla <slindomansilla@suse.com>
-LABEL version="4.5.1509097496.8b8e8e20"
+LABEL version="2017-11-15"
 
 # At the moment, the only reliable source repository to install openQA is its
 # devel project in OBS.
-RUN zypper ar -f obs://devel:openQA/openSUSE_Leap_42.3 openQA
-RUN zypper ar -f obs://devel:openQA:Leap:42.3/openSUSE_Leap_42.3 openQA-perl-modules
+RUN zypper ar -f obs://devel:openQA/openSUSE_Leap_42.3 devel-openQA
+RUN zypper ar -f obs://devel:openQA:Leap:42.3/openSUSE_Leap_42.3 devel-openQA-perl-modules
 RUN zypper --gpg-auto-import-keys ref
 RUN zypper --non-interactive in --force-resolution apache2
 RUN zypper --non-interactive in --force-resolution perl-Archive-Extract
@@ -21,6 +21,7 @@ RUN a2enmod proxy_wstunnel
 RUN mkdir -p /run/dbus
 RUN echo ServerName locahost >> /etc/apache2/httpd.conf
 RUN cp /etc/apache2/vhosts.d/openqa.conf.template /etc/apache2/vhosts.d/openqa.conf
+ADD client.conf /etc/openqa/client.conf
 ADD openqa.ini /etc/openqa/openqa.ini
 ADD rsyncd.conf /etc/rsyncd.conf
 

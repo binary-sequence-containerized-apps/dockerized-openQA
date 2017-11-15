@@ -1,5 +1,7 @@
 #!/bin/bash
 
+export DBUS_STARTER_BUS_TYPE=system
+
 # prepare environment
 rm -f /run/dbus/pid
 if [ ! -f /data/db/db.sqlite ]; then
