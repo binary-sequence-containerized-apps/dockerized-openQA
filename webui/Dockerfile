@@ -16,12 +16,15 @@ RUN a2enmod headers
 RUN a2enmod proxy
 RUN a2enmod proxy_http
 RUN a2enmod proxy_wstunnel
+
+# Config
+RUN mkdir -p /run/dbus
 RUN echo ServerName locahost >> /etc/apache2/httpd.conf
 RUN cp /etc/apache2/vhosts.d/openqa.conf.template /etc/apache2/vhosts.d/openqa.conf
 ADD openqa.ini /etc/openqa/openqa.ini
 ADD rsyncd.conf /etc/rsyncd.conf
 
-# This script start the services without having dbus.
+# This script start the necessary services.
 ADD run_openqa.sh /root/
 RUN chmod +x /root/run_openqa.sh
 
