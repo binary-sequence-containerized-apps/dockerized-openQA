@@ -13,4 +13,4 @@ ADD client.conf /etc/openqa/
 ADD workers.ini /etc/openqa/
 
 USER _openqa-worker
-RUN /usr/share/openqa/script/worker --verbose --instance 1
+CMD ["/usr/share/openqa/script/worker", "--verbose", "--instance", "1"]
