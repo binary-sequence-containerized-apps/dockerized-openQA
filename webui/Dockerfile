@@ -4,8 +4,8 @@ LABEL version="2017-11-15"
 
 # At the moment, the only reliable source repository to install openQA is its
 # devel project in OBS.
-RUN zypper ar -f obs://devel:openQA/openSUSE_Leap_42.3 openQA
-RUN zypper ar -f obs://devel:openQA:Leap:42.3/openSUSE_Leap_42.3 openQA-perl-modules
+RUN zypper ar -f obs://devel:openQA/openSUSE_Leap_42.3 devel-openQA
+RUN zypper ar -f obs://devel:openQA:Leap:42.3/openSUSE_Leap_42.3 devel-openQA-perl-modules
 RUN zypper --gpg-auto-import-keys ref
 RUN zypper --non-interactive in --force-resolution apache2
 RUN zypper --non-interactive in --force-resolution perl-Archive-Extract
