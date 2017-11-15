@@ -19,7 +19,7 @@ RUN a2enmod proxy_wstunnel
 
 # Config
 RUN mkdir -p /run/dbus
-RUN echo ServerName locahost >> /etc/apache2/httpd.conf
+RUN echo ServerName localhost >> /etc/apache2/httpd.conf
 RUN cp /etc/apache2/vhosts.d/openqa.conf.template /etc/apache2/vhosts.d/openqa.conf
 ADD client.conf /etc/openqa/
 ADD openqa.ini /etc/openqa/
