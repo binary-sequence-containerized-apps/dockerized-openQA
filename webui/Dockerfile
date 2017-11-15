@@ -21,6 +21,7 @@ RUN a2enmod proxy_wstunnel
 RUN mkdir -p /run/dbus
 RUN echo ServerName locahost >> /etc/apache2/httpd.conf
 RUN cp /etc/apache2/vhosts.d/openqa.conf.template /etc/apache2/vhosts.d/openqa.conf
+ADD client.conf /etc/openqa/client.conf
 ADD openqa.ini /etc/openqa/openqa.ini
 ADD rsyncd.conf /etc/rsyncd.conf
 
