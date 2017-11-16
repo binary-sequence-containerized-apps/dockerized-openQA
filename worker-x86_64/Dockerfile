@@ -1,6 +1,6 @@
 FROM opensuse:42.3
 LABEL maintainer Sergio Lindo Mansilla <slindomansilla@suse.com>
-LABEL version="2017-11-15"
+LABEL version="2017-11-16"
 
 # At the moment, the only reliable source repository to install openQA is its
 # devel project in OBS.
@@ -11,6 +11,7 @@ RUN zypper --non-interactive in qemu-kvm
 RUN zypper --non-interactive in openQA-worker
 
 # Config
+RUN mkdir /var/lib/openqa/share
 ADD client.conf /etc/openqa/
 ADD workers.ini /etc/openqa/
 
