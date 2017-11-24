@@ -1,16 +1,14 @@
 FROM opensuse:tumbleweed
 LABEL maintainer Sergio Lindo Mansilla <slindomansilla@suse.com>
-LABEL version="2017-11-23"
+LABEL version="2017-11-24"
 
-# At the moment, the only reliable source repository to install openQA is its
-# devel project in OBS.
-RUN zypper ar -f obs://devel:openQA/openSUSE_Tumbleweed devel-openQA
 RUN zypper --gpg-auto-import-keys ref
 RUN zypper --non-interactive in --force-resolution apache2
 RUN zypper --non-interactive in --force-resolution perl-Archive-Extract
 RUN zypper --non-interactive in --force-resolution w3m
 RUN zypper --non-interactive in --force-resolution which
 RUN zypper --non-interactive in --force-resolution openQA
+
 RUN a2enmod headers
 RUN a2enmod proxy
 RUN a2enmod proxy_http
