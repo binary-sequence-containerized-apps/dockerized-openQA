@@ -1,10 +1,9 @@
 FROM opensuse:tumbleweed
 LABEL maintainer Sergio Lindo Mansilla <slindomansilla@suse.com>
-LABEL version="2017-11-24"
+LABEL version="2017-11-25"
 
 RUN zypper --gpg-auto-import-keys ref
 RUN zypper --non-interactive in --force-resolution apache2
-RUN zypper --non-interactive in --force-resolution perl-Archive-Extract
 RUN zypper --non-interactive in --force-resolution w3m
 RUN zypper --non-interactive in --force-resolution which
 RUN zypper --non-interactive in --force-resolution openQA
