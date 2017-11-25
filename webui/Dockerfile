@@ -21,7 +21,7 @@ ADD client.conf /etc/openqa/
 ADD openqa.ini /etc/openqa/
 ADD rsyncd.conf /etc/
 
-# This script start the necessary services.
+# This script starts the necessary services.
 ADD run_openqa.sh /root/
 RUN chmod +x /root/run_openqa.sh
 
