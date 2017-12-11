@@ -1,0 +1,15 @@
+version: '2.0'
+services:
+  webui:
+    container_name: openqa_webui
+    image: binarysequence/openqa-webui:2017-12-11
+    ports:
+      - "80:80"
+      - "443"
+      - "873"
+    volumes:
+      - "/home/sergio/github/os-autoinst-distri-opensuse:/var/lib/openqa/tests/"
+      - "/home/sergio/github/os-autoinst-needles-opensuse:/var/lib/openqa/tests/opensuse/products/opensuse/needles"
+      - "/home/sergio/Documents/hdd:/var/lib/openqa/factory/hdd"
+      - "/home/sergio/Documents/ISO:/var/lib/openqa/factory/iso"
+      - "/home/sergio/Documents/openqa/testresults:/var/lib/openqa/testresults"
