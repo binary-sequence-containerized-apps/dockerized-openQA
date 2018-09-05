@@ -1,6 +1,6 @@
-FROM opensuse:tumbleweed
-LABEL maintainer Sergio Lindo Mansilla <slindomansilla@suse.com>
-LABEL version="2017-12-11"
+FROM opensuse/tumbleweed
+LABEL maintainer Sergio Lindo <sergiolindo.empresa@gmail.com>
+LABEL version="2018-09-06"
 
 RUN zypper --gpg-auto-import-keys ref
 RUN zypper --non-interactive install --force-resolution apache2
