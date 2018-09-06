@@ -37,4 +37,7 @@ ADD run_openqa.sh /root/
 RUN chmod +x /root/run_openqa.sh
 
 EXPOSE 80 443
+VOLUME [ "/var/lib/openqa/factory/" ]
+VOLUME [ "/var/lib/openqa/testresults/" ]
+VOLUME [ "/var/lib/pgsql/data/" ]
 CMD ["/root/run_openqa.sh"]
