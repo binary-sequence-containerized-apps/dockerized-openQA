@@ -1,0 +1,8 @@
+version: '2.0'
+
+services:
+  worker:
+    container_name: openqa_worker
+    build:
+      context: './worker'
+    image: binarysequence/openqa-worker-x86_64:docker-compose
