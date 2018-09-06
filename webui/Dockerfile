@@ -1,6 +1,6 @@
-FROM opensuse:tumbleweed
-LABEL maintainer Sergio Lindo Mansilla <slindomansilla@suse.com>
-LABEL version="2017-12-11"
+FROM opensuse/tumbleweed
+LABEL maintainer Sergio Lindo <sergiolindo.empresa@gmail.com>
+LABEL version="2018-09-06"
 
 RUN zypper --gpg-auto-import-keys ref
 RUN zypper --non-interactive install --force-resolution apache2
@@ -31,11 +31,13 @@ USER root
 ADD client.conf /etc/openqa/
 ADD database.ini /etc/openqa
 ADD openqa.ini /etc/openqa/
-ADD rsyncd.conf /etc/
 
 # This script starts the necessary services.
 ADD run_openqa.sh /root/
 RUN chmod +x /root/run_openqa.sh
 
-EXPOSE 80 443 873
+EXPOSE 80 443
+VOLUME [ "/var/lib/openqa/factory/" ]
+VOLUME [ "/var/lib/openqa/testresults/" ]
+VOLUME [ "/var/lib/pgsql/data/" ]
 CMD ["/root/run_openqa.sh"]
