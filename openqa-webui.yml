@@ -9,9 +9,10 @@ services:
     ports:
       - '80'
       # - '443'
+    restart: on-failure
     volumes:
       - "database:/var/lib/pgsql/data/"
-      - "factory:/var/lib/openqa/factory/"
+      - "factory:/var/lib/openqa/share/factory/"
       - "testresults:/var/lib/openqa/testresults"
 
 volumes:

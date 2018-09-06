@@ -1,6 +1,6 @@
 FROM opensuse/tumbleweed
 LABEL maintainer Sergio Lindo <sergiolindo.empresa@gmail.com>
-LABEL version="2018-09-06"
+LABEL version="2018-09-07"
 
 RUN zypper --gpg-auto-import-keys ref
 RUN zypper --non-interactive install --force-resolution apache2
@@ -37,7 +37,7 @@ ADD run_openqa.sh /root/
 RUN chmod +x /root/run_openqa.sh
 
 EXPOSE 80 443
-VOLUME [ "/var/lib/openqa/factory/" ]
+VOLUME [ "/var/lib/openqa/share/factory/" ]
 VOLUME [ "/var/lib/openqa/testresults/" ]
 VOLUME [ "/var/lib/pgsql/data/" ]
 CMD ["/root/run_openqa.sh"]
