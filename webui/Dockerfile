@@ -31,11 +31,10 @@ USER root
 ADD client.conf /etc/openqa/
 ADD database.ini /etc/openqa
 ADD openqa.ini /etc/openqa/
-ADD rsyncd.conf /etc/
 
 # This script starts the necessary services.
 ADD run_openqa.sh /root/
 RUN chmod +x /root/run_openqa.sh
 
-EXPOSE 80 443 873
+EXPOSE 80 443
 CMD ["/root/run_openqa.sh"]
