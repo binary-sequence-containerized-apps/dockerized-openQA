@@ -1,4 +1,5 @@
-FROM opensuse/tumbleweed
+#!BuildTag: openqa_webui:2018-09-07
+FROM opensuse:42.3
 LABEL maintainer Sergio Lindo <sergiolindo.empresa@gmail.com>
 LABEL version="2018-09-07"
 
