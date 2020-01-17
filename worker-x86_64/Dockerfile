@@ -1,4 +1,4 @@
-FROM opensuse:tumbleweed
+FROM opensuse/tumbleweed
 LABEL maintainer Sergio Lindo Mansilla <slindomansilla@suse.com>
 LABEL version="2018-06-15"
 
