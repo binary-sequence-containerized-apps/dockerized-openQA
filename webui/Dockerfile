@@ -2,15 +2,30 @@ FROM opensuse/tumbleweed
 LABEL maintainer Sergio Lindo <sergiolindo.empresa@gmail.com>
 LABEL version="2018-09-07"
 
-RUN zypper --gpg-auto-import-keys ref
-RUN zypper --non-interactive install --force-resolution apache2
-RUN zypper --non-interactive install --force-resolution perl-DateTime-Format-Pg
-RUN zypper --non-interactive install --force-resolution perl-DBD-Pg
-RUN zypper --non-interactive install --force-resolution postgresql
-RUN zypper --non-interactive install --force-resolution postgresql-server
-RUN zypper --non-interactive install --force-resolution w3m
-RUN zypper --non-interactive install --force-resolution which
-RUN zypper --non-interactive install --force-resolution openQA
+RUN zypper --gpg-auto-import-keys ref && \
+    zypper --non-interactive install --force-resolution apache2 && \
+    rm -rf /var/cache/zypp/*
+RUN zypper --gpg-auto-import-keys ref && \
+    zypper --non-interactive install --force-resolution perl-DateTime-Format-Pg && \
+    rm -rf /var/cache/zypp/*
+RUN zypper --gpg-auto-import-keys ref && \
+    zypper --non-interactive install --force-resolution perl-DBD-Pg && \
+    rm -rf /var/cache/zypp/*
+RUN zypper --gpg-auto-import-keys ref && \
+    zypper --non-interactive install --force-resolution postgresql && \
+    rm -rf /var/cache/zypp/*
+RUN zypper --gpg-auto-import-keys ref && \
+    zypper --non-interactive install --force-resolution postgresql-server && \
+    rm -rf /var/cache/zypp/*
+RUN zypper --gpg-auto-import-keys ref && \
+    zypper --non-interactive install --force-resolution w3m && \
+    rm -rf /var/cache/zypp/*
+RUN zypper --gpg-auto-import-keys ref && \
+    zypper --non-interactive install --force-resolution which && \
+    rm -rf /var/cache/zypp/*
+RUN zypper --gpg-auto-import-keys ref && \
+    zypper --non-interactive install --force-resolution openQA && \
+    rm -rf /var/cache/zypp/*
 
 RUN a2enmod headers
 RUN a2enmod proxy
